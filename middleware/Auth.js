@@ -15,7 +15,7 @@ const verifyToken = (req, res, next) => {
 
         const newtoken = token.slice(7);
         
-        jwt.verify(newtoken, 'admin', (err, decode)=> {
+        jwt.verify(newtoken, process.env.JWT_SECRET, (err, decode)=> {
             if(err){
                 return res.status(401).send({
                     success : false,

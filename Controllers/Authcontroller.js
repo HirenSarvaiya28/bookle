@@ -22,7 +22,7 @@ const loginUser = async (req, res) => {
             })
         }
 
-        const token = await jwt.sign({ payload: user }, "admin", { expiresIn: '1d' })
+        const token = await jwt.sign({ payload: user }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_ExpireIn })
 
         return res.status(200).send({
             success: true,
