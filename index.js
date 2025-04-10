@@ -8,6 +8,8 @@ const port = process.env.PORT || 3000;
 
 const db = require("./config/db")
 
+const path = require('path')
+
 app.use(express.urlencoded());
 
 app.use('/', require('./Routes/indexRoutes'))
@@ -18,4 +20,4 @@ app.listen(port, (err)=>{
         return false;
     }
     console.log(`Server start on = ${port}`);
-}) 
+})

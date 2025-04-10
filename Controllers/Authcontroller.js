@@ -1,5 +1,3 @@
-const jwt = require('jsonwebtoken')
-
 const usermodal = require('../modals/userModal')
 
 const loginUser = async (req, res) => {
@@ -21,24 +19,18 @@ const loginUser = async (req, res) => {
                 message: "Your email or password is incorrect"
             })
         }
-
-        const token = await jwt.sign({ payload: user }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_ExpireIn })
-
         return res.status(200).send({
             success: true,
             message: "Login successfully....",
             token: token
         })
-
     } catch (err) {
         return res.status(400).send({
             success: false,
             error: err
         })
     }
-
 }
-
 
 module.exports = {
     loginUser
