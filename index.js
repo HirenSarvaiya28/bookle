@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 const db = require("./config/db")
 
-const cors = require('cors.js');
+const cors = require('cors');
 
 app.use(cors());
 
